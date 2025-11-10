@@ -1,17 +1,12 @@
-# Maven
-/target/
-/*.log
-/dependency-reduced-pom.xml
-/buildNumber.properties
-
 # IntelliJ IDEA
-/.idea/
-/*.iml
-/out/
-/*.iws
-/workspace.xml
-/tasks.xml
+.idea/
 
-# Mac OS
+# Maven wrapper
+.mvn/
+!/.mvn/wrapper/maven-wrapper.jar
+
+# Build output
+target/
+
+# OS files
 .DS_Store
-Thumbs.db
