@@ -1,0 +1,17 @@
+# Maven
+/target/
+/*.log
+/dependency-reduced-pom.xml
+/buildNumber.properties
+
+# IntelliJ IDEA
+/.idea/
+/*.iml
+/out/
+/*.iws
+/workspace.xml
+/tasks.xml
+
+# Mac OS
+.DS_Store
+Thumbs.db
