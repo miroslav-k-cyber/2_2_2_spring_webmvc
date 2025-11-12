@@ -21,17 +21,23 @@ public class CarController {
     @GetMapping("/cars")
     public String getCars(@RequestParam(value = "count", required = false) Integer count,
                           Model model) {
-        List<Car> cars = carService.getAllCars();
+        List<Car> cars;
         
-        if (count != null && count > 0 && count < 5) {
-            cars = cars.subList(0, Math.min(count, cars.size()));
+        if (count == null) {
+            // count не передан → возвращаем весь список
+            cars = carService.getAllCars();
+        } else if (count >= 5) {
+            // count >= 5 → контроллер решает вернуть весь список
+            cars = carService.getAllCars();
+        } else {
+            // count < 5 → возвращаем count машин
+            cars = carService.getCountCars(count);
         }
         
         model.addAttribute("cars", cars);
-        return "cars";
+        return "cars"; // Thymeleaf-шаблон
     }
     
-    // для проверки, что контроллер работает
     @GetMapping("/")
     public String home() {
         return "redirect:/cars";
